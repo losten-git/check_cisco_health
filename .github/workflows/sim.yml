@@ -13,8 +13,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Create sim user
-      run: useradd -s /bin/bash -m sim
+    # - name: Create sim user
+    #   run: useradd -s /bin/bash -m sim
 
     - uses: actions/setup-python@v5
       with:
@@ -34,7 +34,7 @@ jobs:
     - name: Start simmulation
       run: |
         setup-snmpsim-data /tmp/data
-        sudo -u sim /opt/hostedtoolcache/Python/3.10.14/x64/bin/snmpsim-command-responder --daemonize --pid-file /tmp/snmp --logging-method=file:/tmp/log_snmp --log-level debug --data-dir=/tmp/data/network/router --agent-udpv4-endpoint=127.0.0.1:1611
+        /opt/hostedtoolcache/Python/3.10.14/x64/bin/snmpsim-command-responder --daemonize --pid-file /tmp/snmp --logging-method=file:/tmp/log_snmp --log-level debug --data-dir=/tmp/data/network/router --agent-udpv4-endpoint=127.0.0.1:1611
 
     - name: Sleep
       run: sleep 60s
