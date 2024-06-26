@@ -31,7 +31,7 @@ jobs:
     - name: Start simmulation
       run: |
         setup-snmpsim-data /tmp/data
-        /opt/hostedtoolcache/Python/3.10.14/x64/bin/snmpsim-command-responder --daemonize --pid-file /tmp/snmp --data-dir=/tmp/data/network/switch --agent-udpv4-endpoint=127.0.0.1:1611
+        snmpsim-command-responder --daemonize --pid-file /tmp/snmp --data-dir=/tmp/data/network/switch --agent-udpv4-endpoint=127.0.0.1:1611
 
     - name: Sleep
       run: sleep 60s
@@ -69,7 +69,7 @@ jobs:
     - name: Start simmulation
       run: |
         setup-snmpsim-data /tmp/data
-        /opt/hostedtoolcache/Python/3.10.14/x64/bin/snmpsim-command-responder --daemonize --pid-file /tmp/snmp --data-dir=/tmp/data/network/switch --agent-udpv4-endpoint=127.0.0.1:1611
+        snmpsim-command-responder --daemonize --pid-file /tmp/snmp --data-dir=/tmp/data/network/switch --agent-udpv4-endpoint=127.0.0.1:1611
 
     - name: Sleep
       run: sleep 60s
