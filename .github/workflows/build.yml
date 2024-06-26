@@ -22,8 +22,7 @@ jobs:
       run: pip install -r .github/requirements.txt
  
     - name: Install dependencies
-      run: |
-        sudo .github/prepare_ubuntu.sh
+      run: sudo apt-get update && apt-get install -y libsnmp-dev
 
     - name: Make
       run: make
@@ -60,8 +59,7 @@ jobs:
       run: pip install -r .github/requirements.txt
  
     - name: Install dependencies
-      run: |
-        sudo .github/prepare_ubuntu.sh
+      run: sudo apt-get update && apt-get install -y libsnmp-dev
 
     - name: Make
       run: make
