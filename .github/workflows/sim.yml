@@ -31,7 +31,7 @@ jobs:
     - name: Start simmulation
       run: |
         setup-snmpsim-data /tmp/data
-        /opt/hostedtoolcache/Python/3.10.14/x64/bin/snmpsim-command-responder --daemonize --pid-file /tmp/snmp --data-dir=/tmp/data/network/router --agent-udpv4-endpoint=127.0.0.1:1611
+        /opt/hostedtoolcache/Python/3.10.14/x64/bin/snmpsim-command-responder --daemonize --pid-file /tmp/snmp --data-dir=/tmp/data/network/switch/ --agent-udpv4-endpoint=127.0.0.1:1611
 
     - name: Sleep
       run: sleep 120s
@@ -40,4 +40,4 @@ jobs:
     - name: check_cisco_health
       run: |
         chmod 0755 check_cisco_health
-        ./check_cisco_health -h 127.0.0.1:1611 -c cisco-unmarked-0 -t 30000
+        ./check_cisco_health -h 127.0.0.1:1611 -c cisco-c3560 -t 30000
